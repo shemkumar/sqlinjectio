@@ -16,6 +16,11 @@ def create_db():
 
 create_db()
 
+@app.route('/robots.txt')
+def robots_txt():
+    return send_from_directory(app.root_path, 'robots.txt', mimetype='text/plain')
+
+
 # Route to handle login and display marks
 @app.route('/', methods=['GET', 'POST'])
 def login():
